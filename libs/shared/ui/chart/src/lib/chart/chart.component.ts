@@ -5,6 +5,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { ChartSettingsItem } from './chart-settings-item'
 import { Observable } from 'rxjs';
 
 @Component({
@@ -16,13 +17,8 @@ export class ChartComponent implements OnInit {
   @Input() data$: Observable<any>;
   chartData: any;
 
-  chart: {
-    title: string;
-    type: string;
-    data: any;
-    columnNames: string[];
-    options: any;
-  };
+  chart: ChartSettingsItem;
+
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
@@ -32,7 +28,7 @@ export class ChartComponent implements OnInit {
       data: [],
       columnNames: ['period', 'close'],
       options: { title: `Stock price`, width: '600', height: '400' }
-    };
+    } as ChartSettingsItem;
 
     this.data$.subscribe(newData => (this.chartData = newData));
   }

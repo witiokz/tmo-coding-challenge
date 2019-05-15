@@ -1,0 +1,7 @@
+What is done well?
+Code is well structured. 
+What would you change?
+For chart data probably much better would be use interface or class instead of "any" type.
+Are there any code smells or problematic implementations?
+In chart.component.ts "data" should be changed to "chartData".
+Use Typescript as much as possible.

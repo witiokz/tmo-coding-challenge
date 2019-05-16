@@ -28,6 +28,28 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <mat-form-field>
+      <input matInput formControlName="from" [matDatepicker]="fromPicker" [max]="max"
+      placeholder="From">
+    <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+    <mat-datepicker #fromPicker></mat-datepicker>
+    <mat-error>
+      <span *ngIf="!stockPickerForm.get('from').valid && stockPickerForm.get('from').touched">
+        From value is empty
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput formControlName="to" [matDatepicker]="toPicker" [max]="max"
+      placeholder="To">
+    <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+    <mat-datepicker #toPicker></mat-datepicker>
+    <mat-error>
+      <span *ngIf="!stockPickerForm.get('to').valid && stockPickerForm.get('to').touched">
+        To value is empty
+      </span>
+    </mat-error>
+  </mat-form-field>
 </form>
 
 <coding-challenge-chart [data$]="quotes$"></coding-challenge-chart>
